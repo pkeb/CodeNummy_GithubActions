@@ -7,3 +7,21 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    steps:
+      - name: Setup cmake
+        uses: jwlawson/actions-setup-cmake@v1.9
+        with:
+          cmake-version: '3.21.x'
+
+      - name: Use cmake
+        run: cmake --version
+
+      - name: Set up GCC
+        uses: egor-tensin/setup-gcc@v1
+        with:
+          version: latest
+          platform: x64
+
+      - name: Use gcc
+        run: gcc --version
+
